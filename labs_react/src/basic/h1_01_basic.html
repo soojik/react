@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> <!-- 선언 부분 -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            /* 기본 선택자 */
+            h1 {
+                font-size: 50px;
+                font-family: '궁서체';
+                color: blueviolet;
+            }
+            .title {
+                font-size: 60px;
+                color: aquamarine;
+            }
+            #subject {
+                font-size: 30px;
+                color: red;
+            }
+        </style>
+    </head>
+    <body> <!-- 출력 부분 -->
+        <h1 class="title">HTML BASIC</h1>
+        <h1 id="subject">HTML BASIC</h1>
+        <h1 id="subject">HTML BASIC</h1>
+        <h1>HTML BASIC</h1>
+        <h1>HTML BASIC</h1>
+        <h1>HTML BASIC</h1>
+        <button type="button" onclick="changeContent()">버튼</button>
+        <script>
+            function changeContent() {
+                document.getElementById('subject').innerText = 'HTML 기본';
+            }
+        </script>
+    </body>
+</html>
