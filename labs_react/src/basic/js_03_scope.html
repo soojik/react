@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            //this
+            var name = '가';
+
+            console.log('-------------');
+            let test2 = {
+                name: '다',
+                test: function () {
+                    var name = '라';
+                    console.log(name); // 지역변수 name, 만약 같은 scope 안에 name이 없다면 전역 name 호출 
+                    console.log(this.name); // this -> test가 있는 객체 
+                    console.log(window.name);
+                }.bind(this),
+            };
+            test2.test();
+        </script>
+    </body>
+</html>

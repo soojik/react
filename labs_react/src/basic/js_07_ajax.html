@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    
+    <script>
+        let result = '';
+        $.get('msg.json', {}, function(data) {
+            result = data;
+            console.log('1. ', result);
+        });
+
+        console.log('2. ', result);
+
+        let result2 = '';
+        $.get('msg.json', {})
+        .done(function(data) {
+            result2 = data;
+            console.log('3. ', result2);
+        })
+        .done(function() {
+            console.log('4. ', result2);
+        })
+        .fail(function(err) {
+            console.error('5. ', err);
+        })
+
+        // es6가 제공하는 promised design pattern
+        fetch('msg.json', {method: 'GET'})
+        .then((res) => {
+            if (res.ok) return res.json();
+        })
+        .then((data) => {
+            console.log('6. ', data);
+        })
+        .catch(function(err) {
+            console.error('7. ', err);
+        })
+
+        axios.get('msg.json', {})
+        .then((data) => {
+            console.log('8. ', data);
+        })
+        .catch(function(err) {
+            console.error('9. ', err);
+        })
+
+        axios({
+            method: 'GET',
+            url: 'msg.json',
+            data: {
+                param: '1234'
+            }
+        })
+        .then((data) => {
+            console.log('10. ', data);
+        })
+        .catch(function(err) {
+            console.error('11. ', err);
+        })
+
+    </script>
+</body>
+</html>

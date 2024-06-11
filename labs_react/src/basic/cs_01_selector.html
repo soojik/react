@@ -13,6 +13,10 @@
                 background-color: transparent; /* 바탕 색 투명 */
             }
 
+            h1 {
+                text-decoration: underline;
+            }
+
             /* 복합 선택자 */
             ul li {
                 color: blue;
@@ -55,6 +59,8 @@
             li[title*='무료'] {
                 text-decoration: underline;
             } /* '무료'를 포함한다면 */
+
+
         </style>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     </head>
@@ -77,10 +83,18 @@
             <li>요소6</li>
         </ul>
 
+        <h1>Header</h1>
+
         <script>
             $('li[title$="품절"]').on('click', function() {
                 alert('품절입니다.');
             })
+
+            // document -> DOM 객체 관리
+            // tag로 둘러쌓인 부분 -> content
+            document.querySelector('h1').addEventListener('click', function() {
+                document.querySelector('body').appendChild(document.createElement('h1')).textContent = 'Header';
+            });
         </script>
     </body>
 </html>
